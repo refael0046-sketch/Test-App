@@ -1,10 +1,11 @@
 {
-  "name": "My First App",
-  "short_name": "My App",
-  "description": "A colorful demo app built on my phone.",
+  "name": "My Drawing Library",
+  "short_name": "Drawings",
+  "description": "Store and organize your drawings and art files on your device.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#6d28d9",
+  "orientation": "portrait",
+  "background_color": "#0f0c1d",
   "theme_color": "#6d28d9",
   "icons": [
     {

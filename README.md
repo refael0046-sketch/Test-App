@@ -1,35 +1,46 @@
-# My First App 👋
+# My Drawing Library 🎨
 
-A colorful little demo app — built on a phone! Tap the button, watch the counter
-and emoji change. Your tap count is saved on your device, and the app even works
-without internet once it's loaded.
+A personal library for your artwork — built as a phone app. Store your drawings
+and open the app to browse them anytime, even offline. Everything is saved
+**on your device**.
 
-## 📱 How to see it on your phone
+## ✨ What it does
 
-The app is just a web page, so you only need to put it online once. The easiest
-free way is **GitHub Pages**:
+- **Add any file** — photos, PNG, JPG, GIF, WebP, and art-app files like
+  `.procreate`, `.clip`, `.psd`, `.kra`, and more.
+- **Thumbnails** for regular images; clean file cards with a format badge for
+  art-app files.
+- **Search** your library by name or note.
+- **Notes/tags** — jot a note on any drawing.
+- **Export** any file back out (your backup copy) and **Delete** what you don't need.
+- **Works offline** and asks the browser to keep your files safe from auto-cleanup.
 
-1. On GitHub, open this repository → **Settings** → **Pages**.
-2. Under **Build and deployment**, set **Source** to *Deploy from a branch*.
-3. Pick the branch that has these files and the `/ (root)` folder, then **Save**.
-4. Wait about a minute, then refresh. GitHub shows a link like
-   `https://<your-username>.github.io/test-app/`.
-5. Open that link in your phone's browser. 🎉
+## 📱 Using it
 
-### Make it feel like a real app
-In your phone browser's menu, tap **“Add to Home Screen.”** Now it has its own
-icon and opens full-screen, just like an app from the store.
+1. Open your live app link and tap **“Add to Home Screen.”**
+2. Tap the **＋** button to add drawings (you can pick several at once).
+3. Tap any drawing to view it, add a note, export, or delete.
+
+## ℹ️ Good to know
+
+- **Where files live:** Everything is stored in this browser/app on this
+  device. It's private and works offline — but it is *not* auto-backed-up to the
+  cloud. Use the **Export** button to save important pieces elsewhere, and avoid
+  "clear browsing data," which would remove them.
+- **Art-app files** (`.procreate`, `.clip`, `.psd`…) are proprietary, so they
+  can't be *previewed* in a browser. They're stored safely and can be exported
+  back out to open in their original app.
+
+## 🚀 What's next?
+
+Possible upgrades: cloud sync + backup across devices (iPad ↔ phone), albums/
+folders, sorting options, and thumbnail previews for Procreate files. Just ask!
 
 ## 📂 What's inside
 
 | File | What it does |
 |------|--------------|
-| `index.html` | The whole app — the screen, styles, and buttons |
+| `index.html` | The whole app — UI, storage, and logic |
 | `manifest.json` | Lets the phone install it to the home screen |
 | `icon.svg` | The app's icon |
-| `sw.js` | Makes the app work offline after the first visit |
-
-## 🚀 What's next?
-
-This is your starting point. When you're ready, we can turn it into a real
-to-do list, notes app, habit tracker — whatever you'd like. Just ask!
+| `sw.js` | Makes the app work offline |
