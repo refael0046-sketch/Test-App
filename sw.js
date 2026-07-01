@@ -1,5 +1,5 @@
 // A tiny service worker so the app opens even without internet.
-const CACHE = "drawing-library-v2";
+const CACHE = "drawing-library-v3";
 const ASSETS = ["./", "./index.html", "./manifest.json", "./icon.svg"];
 
 self.addEventListener("install", (event) => {
