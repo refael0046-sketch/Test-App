@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#6d28d9" />
+  <title>My First App</title>
+
+  <!-- Lets the phone add this to the home screen like a real app -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+
+  <style>
+    :root {
+      --bg1: #6d28d9;
+      --bg2: #db2777;
+      --card: rgba(255, 255, 255, 0.14);
+    }
+
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    html, body { height: 100%; margin: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #fff;
+      background: linear-gradient(160deg, var(--bg1), var(--bg2));
+      background-attachment: fixed;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px calc(24px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(24px + env(safe-area-inset-left));
+      overflow-x: hidden;
+    }
+
+    .emoji {
+      font-size: 72px;
+      line-height: 1;
+      margin-bottom: 8px;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+    .emoji.bounce { animation: pop 0.5s ease; }
+
+    @keyframes pop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.4) rotate(8deg); }
+      100% { transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0 0 6px;
+    }
+
+    p.subtitle {
+      margin: 0 0 28px;
+      opacity: 0.85;
+      font-size: 16px;
+      max-width: 320px;
+    }
+
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 24px;
+      padding: 28px 24px;
+      width: 100%;
+      max-width: 340px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .count {
+      font-size: 56px;
+      font-weight: 700;
+      margin: 4px 0 20px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    button {
+      font: inherit;
+      font-weight: 600;
+      font-size: 18px;
+      color: #6d28d9;
+      background: #fff;
+      border: none;
+      border-radius: 16px;
+      padding: 16px 24px;
+      width: 100%;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+    button:active { transform: scale(0.96); }
+
+    .hint {
+      margin-top: 22px;
+      font-size: 13px;
+      opacity: 0.7;
+      max-width: 300px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <span id="emoji" class="emoji">👋</span>
+  <h1>Hello! Your app is alive.</h1>
+  <p class="subtitle">You built this. Tap the button and watch it work.</p>
+
+  <div class="card">
+    <div>You've tapped</div>
+    <div id="count" class="count">0</div>
+    <button id="tapBtn">Tap me! ✨</button>
+  </div>
+
+  <p class="hint">
+    Tip: use your browser's menu → <b>“Add to Home Screen”</b> to keep this app
+    as an icon on your phone.
+  </p>
+
+  <script>
+    const emojis = ["👋", "🎉", "🚀", "🌈", "⭐", "🔥", "💜", "🎈", "🍀", "✨"];
+    let count = Number(localStorage.getItem("tapCount") || 0);
+
+    const countEl = document.getElementById("count");
+    const emojiEl = document.getElementById("emoji");
+    const btn = document.getElementById("tapBtn");
+
+    countEl.textContent = count;
+
+    btn.addEventListener("click", () => {
+      count++;
+      countEl.textContent = count;
+      localStorage.setItem("tapCount", count);
+
+      emojiEl.textContent = emojis[count % emojis.length];
+      emojiEl.classList.remove("bounce");
+      void emojiEl.offsetWidth; // restart the animation
+      emojiEl.classList.add("bounce");
+
+      if (navigator.vibrate) navigator.vibrate(15);
+    });
+
+    // Register the service worker so the app can open even without internet.
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
