@@ -12,8 +12,13 @@ and open the app to browse them anytime, even offline. Everything is saved
   art-app files.
 - **Search** your library by name or note.
 - **Notes/tags** — jot a note on any drawing.
-- **Export** any file back out (your backup copy) and **Delete** what you don't need.
-- **Works offline** and asks the browser to keep your files safe from auto-cleanup.
+- **Export as PNG / JPG / WebP** at the image's **true, full resolution** (a
+  2024×2024 image exports at 2024×2024), with a **movable watermark** you drag
+  into place before saving.
+- **Export original** file back out (your backup copy) and **Delete** what you
+  don't need.
+- **Gray-dark theme**, works **offline**, and asks the browser to keep your files
+  safe from auto-cleanup.
 
 ## 📱 Using it
 
@@ -27,9 +32,12 @@ and open the app to browse them anytime, even offline. Everything is saved
   device. It's private and works offline — but it is *not* auto-backed-up to the
   cloud. Use the **Export** button to save important pieces elsewhere, and avoid
   "clear browsing data," which would remove them.
-- **Art-app files** (`.procreate`, `.clip`, `.psd`…) are proprietary, so they
-  can't be *previewed* in a browser. They're stored safely and can be exported
-  back out to open in their original app.
+- **Art-app files** (`.procreate`, `.clip`, `.psd`…) are proprietary: the artwork
+  is locked inside a private format, so a browser can't preview them **or convert
+  them to a full-resolution PNG**. They're stored safely and can be exported back
+  out to open in their original app. To watermark/re-export art from those apps,
+  export a PNG/JPG from the app (which uses your full canvas resolution) and add
+  *that* to the library — then the export/watermark tools work on it.
 
 ## 🚀 What's next?
 
